@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understand Audit &amp; Compliance in India | AuditPro</title>
+  <meta name="description" content="Statutory audit, tax audit under Section 44AB, GST reconciliation and ICAI Standards on Auditing explained for Indian businesses." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #001026;
+      --navy-2: #0b2545;
+      --teal: #006a63;
+      --teal-light: #79f3e8;
+      --teal-soft: #b1c7f0;
+      --bg: #f8f9fb;
+      --card: #f2f4f6;
+      --chip: #e6e8ea;
+      --btn-grey: #e0e3e5;
+      --text: #44474e;
+      --muted: #74777f;
+      --line: rgba(196, 198, 207, 0.4);
+      --line-soft: rgba(196, 198, 207, 0.3);
+      --danger: #ba1a1a;
+      --warn: #d47300;
+      --white: #ffffff;
+      --radius: 8px;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--navy);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+    section { padding: 64px 0; }
+    .section-alt { background: var(--white); }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px; border-radius: 2px;
+      background: rgba(0, 106, 99, 0.1); color: var(--teal);
+      font-size: 11px; font-weight: 600; letter-spacing: 0.55px; text-transform: uppercase;
+    }
+    .eyebrow svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
+    h1 { font-size: 48px; line-height: 48px; font-weight: 700; letter-spacing: -1.2px; }
+    h2 { font-size: 32px; line-height: 40px; font-weight: 600; letter-spacing: -0.48px; }
+    h3 { font-size: 16px; line-height: 24px; font-weight: 600; }
+    h4 { font-size: 15px; line-height: 22px; font-weight: 600; }
+    .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+    .section-head .intro { max-width: 672px; color: var(--text); font-size: 15px; line-height: 22px; margin-top: 8px; }
+    .chip { display: inline-block; padding: 4px 10px; border-radius: 2px; background: var(--chip); color: var(--navy); font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 0.27px; text-transform: uppercase; background: rgba(60, 29, 0, 0.1); color: var(--warn); }
+    .muted { color: var(--muted); }
+    .teal { color: var(--teal); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 20px; border-radius: 2px;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.26px; white-space: nowrap;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .btn svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
+    .btn-primary { background: var(--navy); color: var(--white); box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1); }
+    .btn-primary:hover { transform: translateY(-1px); background: #0b2545; }
+    .btn-secondary { background: var(--btn-grey); color: var(--navy); }
+    .btn-secondary:hover { background: #d6dadd; }
+    .btn-accent { background: var(--teal-light); color: #006f68; font-weight: 600; }
+    .btn-accent:hover { background: #5fe6da; }
+    .btn-pay { background: var(--teal); color: var(--white); font-weight: 600; box-shadow: 0 4px 6px -1px rgba(0,106,99,.25); }
+    .btn-pay:hover { background: #005750; transform: translateY(-1px); }
+    .btn-block { width: 100%; height: 48px; font-size: 16px; font-weight: 600; }
+
+    /* Top bar + header */
+    .topbar { background: var(--navy-2); color: #b1c7f0; font-size: 12px; }
+    .topbar .container { display: flex; justify-content: space-between; align-items: center; height: 22px; padding-top: 0; padding-bottom: 0; }
+    .topbar a { color: #b1c7f0; }
+    .header { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); position: sticky; top: 0; z-index: 50; }
+    .header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 4px; background: var(--navy); display: grid; place-items: center; }
+    .brand-mark svg { width: 14px; height: 17px; fill: none; stroke: var(--teal-light); stroke-width: 2; }
+    .brand-text strong { display: block; font-size: 16px; line-height: 20px; }
+    .brand-text span { font-size: 11px; color: var(--muted); }
+    .nav { display: flex; gap: 4px; }
+    .nav a { padding: 6px 12px; font-size: 13px; color: var(--text); border-radius: 2px; }
+    .nav a:hover, .nav a.active { color: var(--navy); background: var(--chip); }
+    .header-cta { display: flex; align-items: center; gap: 10px; }
+    .menu-toggle { display: none; width: 36px; height: 36px; place-items: center; }
+    .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after { display: block; width: 20px; height: 2px; background: var(--navy); position: relative; }
+    .menu-toggle span::before, .menu-toggle span::after { content: ""; position: absolute; left: 0; }
+    .menu-toggle span::before { top: -6px; }
+    .menu-toggle span::after { top: 6px; }
+
+    /* Section 1: Hero */
+    .hero { padding: 80px 0; }
+    .hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: center; }
+    .hero-copy { display: flex; flex-direction: column; gap: 24px; }
+    .hero-copy p.lead { max-width: 672px; font-size: 18px; line-height: 29px; color: var(--text); letter-spacing: -0.09px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding-top: 8px; }
+    .trust { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; border-top: 1px solid var(--line); padding-top: 25px; }
+    .trust .label { font-size: 11px; font-weight: 500; letter-spacing: 0.55px; text-transform: uppercase; color: var(--muted); }
+    .badges { display: flex; gap: 12px; flex-wrap: wrap; }
+    .badge { background: var(--chip); padding: 4px 10px; border-radius: 2px; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; color: var(--navy); }
+    .quickcard { background: var(--white); border: 1px solid var(--line-soft); border-radius: var(--radius); box-shadow: var(--shadow); padding: 53px 29px 29px; display: flex; flex-direction: column; gap: 24px; position: relative; overflow: hidden; }
+    .quickcard-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 17px; border-bottom: 1px solid var(--chip); }
+    .quickcard-head .title { display: flex; gap: 10px; align-items: center; }
+    .quickcard-head svg { width: 20px; height: 22px; fill: none; stroke: var(--navy); stroke-width: 2; }
+    .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .metric { background: var(--card); border: 1px solid rgba(196,198,207,.2); border-radius: 4px; padding: 15px; display: flex; flex-direction: column; gap: 2px; }
+    .metric .k { font-size: 11px; font-weight: 600; letter-spacing: 0.55px; color: var(--text); }
+    .metric .v { font-size: 20px; font-weight: 600; color: var(--navy); margin-top: 3px; }
+    .metric .v.danger { color: var(--danger); }
+    .metric .s { font-size: 11px; color: var(--teal); margin-top: 6px; }
+    .metric .s.muted { color: var(--text); }
+    .ribbon { background: var(--navy-2); color: var(--white); border-radius: 4px; padding: 16px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .ribbon .t { font-size: 16px; font-weight: 500; }
+    .ribbon .s { font-size: 13px; color: var(--teal-soft); }
+    .glow { position: absolute; top: 0; right: 0; width: 128px; height: 128px; background: rgba(0,106,99,.05); filter: blur(40px); border-radius: 12px; pointer-events: none; }
+
+    /* Section 2: audit types matrix */
+    .matrix { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .audit-card { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 25px; display: flex; flex-direction: column; gap: 16px; }
+    .audit-card .top { display: flex; justify-content: space-between; align-items: center; }
+    .audit-card .sub { font-size: 13px; color: var(--teal); font-weight: 500; }
+    .audit-card .field { padding: 12px 0; border-top: 1px solid var(--chip); font-size: 13px; line-height: 20px; color: var(--text); }
+    .audit-card .field b { display: block; color: var(--navy); font-size: 11px; letter-spacing: 0.55px; text-transform: uppercase; margin-bottom: 4px; }
+    .audit-card .foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 14px; font-size: 13px; color: var(--navy); display: flex; justify-content: space-between; }
+    .caro { margin-top: 24px; background: var(--white); border: 1px solid var(--line-soft); border-left: 4px solid var(--teal); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 28px; display: grid; grid-template-columns: 1fr 2fr; gap: 24px; align-items: center; }
+    .caro .label { font-size: 11px; font-weight: 600; letter-spacing: 0.55px; text-transform: uppercase; color: var(--teal); }
+    .caro h4 { font-size: 18px; margin-top: 6px; }
+    .caro p { font-size: 14px; color: var(--text); line-height: 22px; }
+    .caro .meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+    .caro .meta b { color: var(--navy); font-weight: 600; }
+
+    /* Section 3: income tax audit */
+    .thresholds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .tbox { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 25px; display: flex; flex-direction: column; gap: 12px; }
+    .tbox .big { font-size: 22px; font-weight: 600; color: var(--navy); }
+    .tbox p { font-size: 13px; color: var(--text); line-height: 20px; }
+    .bento { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; }
+    .forms-col { display: flex; flex-direction: column; gap: 16px; }
+    .form-card { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 21px; }
+    .form-card .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .form-card .row .code { font-size: 15px; font-weight: 600; }
+    .form-card p { font-size: 13px; line-height: 20px; color: var(--text); }
+    .clause { background: var(--navy-2); color: var(--white); border-radius: var(--radius); padding: 16px; font-size: 13px; line-height: 20px; }
+    .clause strong { color: var(--teal-light); }
+
+    .calc { background: var(--white); border: 1px solid var(--line-soft); border-radius: var(--radius); box-shadow: var(--shadow); padding: 29px; }
+    .calc-head { display: flex; align-items: center; gap: 10px; justify-content: space-between; flex-wrap: wrap; padding-bottom: 16px; border-bottom: 1px solid var(--chip); margin-bottom: 20px; }
+    .calc-head .t { display: flex; align-items: center; gap: 10px; }
+    .calc-head svg { width: 18px; height: 18px; fill: none; stroke: var(--teal); stroke-width: 2; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+    .field-label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--navy); }
+    .input, .select {
+      width: 100%; height: 44px; padding: 0 13px;
+      background: var(--bg); border: 1px solid rgba(196,198,207,.6); border-radius: 2px;
+      font: inherit; font-size: 15px; color: var(--navy);
+    }
+    .input:focus, .select:focus, .field-input:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+    .toggle { display: flex; gap: 8px; }
+    .toggle button { flex: 1; height: 44px; border: 1px solid rgba(196,198,207,.6); background: var(--bg); border-radius: 2px; font-size: 14px; color: var(--navy); }
+    .toggle button.on { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .result { margin-top: 20px; background: var(--card); border-radius: 4px; padding: 21px; display: flex; gap: 16px; align-items: flex-start; }
+    .result .icon { width: 26px; height: 26px; flex: 0 0 26px; }
+    .result h4 { font-size: 15px; }
+    .result p { font-size: 14px; color: var(--text); margin-top: 4px; line-height: 22px; }
+    .result .pill { display: inline-block; margin-top: 10px; padding: 3px 8px; font-size: 11px; background: var(--teal-soft); color: var(--navy); border-radius: 2px; }
+
+    .steps-list { margin-top: 24px; font-size: 14px; }
+
+    /* Section 4: GST */
+    .gst-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .tier { background: var(--white); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 25px; display: flex; flex-direction: column; gap: 12px; }
+    .tier .range { font-size: 12px; font-weight: 600; letter-spacing: 0.3px; color: var(--teal); }
+    .tier .status { font-size: 13px; font-weight: 600; }
+    .tier p { font-size: 13px; color: var(--text); line-height: 20px; }
+    .pipeline { background: var(--navy); color: var(--white); border-radius: var(--radius); padding: 33px; }
+    .pipeline h3 { font-size: 20px; margin-bottom: 24px; }
+    .pipe { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .pipe-step { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 20px; min-height: 178px; }
+    .pipe-step .ph { font-size: 11px; font-weight: 600; letter-spacing: 0.55px; color: var(--teal-light); }
+    .pipe-step h4 { margin-top: 10px; font-size: 16px; }
+    .pipe-step p { margin-top: 10px; font-size: 13px; line-height: 20px; color: var(--teal-soft); }
+
+    /* Section 5: SAs */
+    .sa-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .sa-card { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 21px; display: flex; flex-direction: column; gap: 10px; }
+    .sa-card .code { display: inline-block; align-self: flex-start; background: var(--chip); padding: 3px 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; border-radius: 2px; }
+    .sa-card h4 { font-size: 15px; }
+    .sa-card p { font-size: 13px; line-height: 20px; color: var(--text); }
+    .opinions { margin-top: 24px; background: var(--white); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 25px; }
+    .opinions h4 { margin-bottom: 18px; }
+    .op-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .op { border-left: 3px solid var(--teal); background: var(--bg); padding: 16px; border-radius: 2px; }
+    .op:nth-child(2) { border-color: #5b7fb5; }
+    .op:nth-child(3) { border-color: var(--warn); }
+    .op:nth-child(4) { border-color: var(--danger); }
+    .op h5 { font-size: 13px; font-weight: 600; }
+    .op p { font-size: 13px; line-height: 20px; color: var(--text); margin-top: 6px; }
+
+    /* Section 6: FAQ */
+    .faq { max-width: 896px; margin: 0 auto; }
+    .faq-title { text-align: center; }
+    .faq-title .eyebrow { margin-bottom: 12px; }
+    .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 8px; }
+    .faq-item { background: var(--white); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }
+    .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px; text-align: left; font-size: 15px; font-weight: 600; color: var(--navy); }
+    .faq-q .plus { width: 12px; height: 12px; position: relative; flex: 0 0 12px; }
+    .faq-q .plus::before, .faq-q .plus::after { content: ""; position: absolute; background: var(--navy); left: 0; right: 0; top: 50%; height: 2px; transition: transform .2s ease; }
+    .faq-q .plus::after { transform: rotate(90deg); }
+    .faq-item.open .faq-q .plus::after { transform: rotate(0deg); }
+    .faq-a { display: none; padding: 0 20px 20px; font-size: 14px; line-height: 22px; color: var(--text); border-top: 1px solid var(--chip); padding-top: 14px; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* Section 7: contact */
+    .contact-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: start; }
+    .form-card-main { background: var(--white); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 33px; box-shadow: 0 1px 1px rgba(0,0,0,.05); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-row.single { grid-template-columns: 1fr; }
+    .form-field { display: flex; flex-direction: column; gap: 4px; }
+    .field-input { height: 44px; padding: 0 13px; background: var(--bg); border: 1px solid rgba(196,198,207,.6); border-radius: 2px; font: inherit; font-size: 15px; color: var(--navy); }
+    .field-input::placeholder { color: #9ca3af; }
+    .field-input.invalid { border-color: var(--danger); }
+    .error-text { font-size: 12px; color: var(--danger); min-height: 0; display: none; }
+    .error-text.show { display: block; }
+    .submit-btn { width: 100%; height: 48px; background: var(--navy); color: var(--white); border-radius: 2px; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 1px 1px rgba(0,0,0,.05); }
+    .submit-btn:disabled { opacity: .6; cursor: not-allowed; }
+    .submit-btn svg { width: 16px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; }
+    .form-note { text-align: center; font-size: 11px; color: var(--muted); margin-top: 16px; }
+    .status-box { display: none; margin-top: 16px; padding: 14px 16px; border-radius: 4px; font-size: 14px; }
+    .status-box.show { display: block; }
+    .status-box.ok { background: rgba(0,106,99,.1); color: var(--teal); border: 1px solid rgba(0,106,99,.25); }
+    .status-box.err { background: rgba(186,26,26,.08); color: var(--danger); border: 1px solid rgba(186,26,26,.2); }
+    .side { display: flex; flex-direction: column; gap: 24px; }
+    .panel { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 25px; display: flex; flex-direction: column; gap: 16px; }
+    .panel h3 { font-size: 16px; }
+    .contact-item { display: flex; gap: 12px; align-items: flex-start; }
+    .contact-item .ico { width: 32px; height: 32px; flex: 0 0 32px; border-radius: 2px; background: rgba(0,106,99,.1); display: grid; place-items: center; }
+    .contact-item .ico svg { width: 14px; height: 14px; fill: none; stroke: var(--teal); stroke-width: 2; }
+    .contact-item .lbl { font-size: 12px; color: var(--text); }
+    .contact-item .val { font-size: 15px; font-weight: 600; color: var(--navy); }
+    .contact-item .sm { font-size: 13px; font-weight: 600; color: var(--navy); }
+    .hub { display: flex; gap: 10px; align-items: flex-start; }
+    .hub svg { width: 14px; height: 18px; flex: 0 0 14px; fill: none; stroke: var(--teal); stroke-width: 2; margin-top: 2px; }
+    .hub strong { display: block; font-size: 13px; font-weight: 500; }
+    .hub span { display: block; font-size: 12px; color: var(--text); line-height: 16px; }
+
+    /* Footer */
+    .footer { background: var(--navy); color: #c4c6cf; padding: 48px 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 32px; }
+    .footer h4 { color: var(--white); font-size: 15px; margin-bottom: 14px; }
+    .footer p, .footer li { font-size: 13px; line-height: 20px; }
+    .footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer a:hover { color: var(--teal-light); }
+    .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: var(--white); font-weight: 600; font-size: 16px; }
+    .footer-brand .brand-mark { background: var(--teal); width: 28px; height: 28px; }
+    .footer-brand .brand-mark svg { width: 12px; height: 14px; }
+    .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; }
+    .footer-bottom nav { display: flex; gap: 16px; }
+    .disclaimer { font-size: 12px; color: #8f94a0; margin-top: 16px; }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .container { padding: 0 24px; }
+      .matrix, .sa-grid, .op-grid, .pipe { grid-template-columns: repeat(2, 1fr); }
+      .nav { display: none; }
+      .nav.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--white); padding: 12px 24px 20px; border-bottom: 1px solid var(--line-soft); box-shadow: var(--shadow); }
+      .menu-toggle { display: grid; }
+      .hero-grid, .contact-grid, .bento, .caro { grid-template-columns: 1fr; }
+      .thresholds, .gst-tiers { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .container { padding: 0 16px; }
+      section { padding: 48px 0; }
+      .hero { padding: 48px 0; }
+      h1 { font-size: 34px; line-height: 40px; letter-spacing: -0.8px; }
+      h2 { font-size: 26px; line-height: 32px; }
+      .hero-copy p.lead { font-size: 16px; line-height: 26px; }
+      .matrix, .sa-grid, .op-grid, .pipe, .calc-grid, .form-row, .footer-grid { grid-template-columns: 1fr; }
+      .header-cta .btn { display: none; }
+      .topbar .container span { display: none; }
+      .table-wrap { overflow-x: auto; }
+      .metrics { grid-template-columns: 1fr; }
+      .ribbon { flex-direction: column; align-items: flex-start; }
+      .footer-bottom { flex-direction: column; }
+      .calc, .form-card-main { padding: 22px; }
+    }
+
+    .table-wrap { overflow-x: auto; background: var(--white); border: 1px solid var(--line-soft); border-radius: var(--radius); }
+    .table-wrap table { width: 100%; border-collapse: collapse; min-width: 720px; font-size: 13px; }
+    .table-wrap th, .table-wrap td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--chip); vertical-align: top; line-height: 20px; }
+    .table-wrap th { background: var(--card); font-size: 11px; letter-spacing: 0.55px; text-transform: uppercase; color: var(--navy); }
+    .table-wrap td:first-child { font-weight: 600; color: var(--navy); }
+    .table-wrap tr:last-child td { border-bottom: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container">
+      <span>Statutory benchmark &bull; FY 2024&ndash;25 edition</span>
+      <a href="#contact">Speak to an advisor</a>
+    </div>
+  </div>
+
+  <!-- Header / navigation -->
+  <header class="header">
+    <div class="container" style="position: relative;">
+      <a href="#top" class="brand" aria-label="AuditPro home">
+        <div class="brand-mark">
+          <svg viewBox="0 0 14 17"><path d="M7 1 L13 4 V9 C13 12.5 10.5 15 7 16 C3.5 15 1 12.5 1 9 V4 Z"/><path d="M4.5 8.5 L6.5 10.5 L10 6.5"/></svg>
+        </div>
+        <div class="brand-text">
+          <strong>AuditPro</strong>
+          <span>Audit &amp; Compliance India</span>
+        </div>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#audit-types">Audit Types</a>
+        <a href="#tax-audit">Tax Audit</a>
+        <a href="#gst">GST Audit</a>
+        <a href="#standards">Standards</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- SECTION 1: HERO & REGULATORY BENCHMARK -->
+    <section class="hero" id="overview">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">
+              <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="currentColor" stroke="none"/></svg>
+              Statutory Benchmark &bull; FY 2024&ndash;25 Edition
+            </span>
+            <h1>Understand Audit &amp;<br />Compliance in India</h1>
+            <p class="lead">
+              Master the statutory lifecycle under the Companies Act 2013, Section 44AB Income Tax audits, GST reconciliation
+              frameworks, and ICAI Standards of Auditing. Built for Indian founders, CFOs, audit practitioners, and corporate
+              advisors requiring legal precision without ambiguity.
+            </p>
+            <div class="hero-actions">
+              <a href="#audit-types" class="btn btn-primary">
+                Explore Audit Types
+                <svg viewBox="0 0 12 12"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
+              </a>
+              <a href="#tax-audit" class="btn btn-secondary">
+                <svg viewBox="0 0 12 12"><rect x="1.5" y="1.5" width="9" height="9" rx="1"/><path d="M4 6l1.5 1.5L8 4.5"/></svg>
+                Check Tax Audit Eligibility
+              </a>
+              <!-- Added: Cashfree payment button (not present in the Figma frame; placed beside the hero CTAs) -->
+              <a href="https://payments.cashfree.com/forms/getaudit" target="_blank" rel="noopener" class="btn btn-pay">
+                Free Audit for &#8377;1
+              </a>
+            </div>
+            <div class="trust">
+              <span class="label">Statutory frameworks aligned:</span>
+              <div class="badges">
+                <span class="badge">ICAI</span>
+                <span class="badge">MCA</span>
+                <span class="badge">CBDT</span>
+                <span class="badge">CBIC</span>
+                <span class="badge">RBI</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="quickcard">
+            <div class="quickcard-head">
+              <div class="title">
+                <svg viewBox="0 0 20 22"><rect x="3" y="2" width="14" height="18" rx="2"/><path d="M7 7h6M7 11h6M7 15h4"/></svg>
+                <h3>Filing Horizon FY 2024&ndash;25</h3>
+              </div>
+              <span class="tag">Strict Penalties</span>
+            </div>
+            <div class="metrics">
+              <div class="metric">
+                <span class="k">CORPORATE TAX AUDIT</span>
+                <span class="v">31 Oct 2024</span>
+                <span class="s">Sec 44AB / 3CA-3CD</span>
+              </div>
+              <div class="metric">
+                <span class="k">GST ANNUAL RETURN</span>
+                <span class="v">31 Dec 2024</span>
+                <span class="s">Form GSTR-9 / 9C</span>
+              </div>
+              <div class="metric">
+                <span class="k">SEC 271B PENALTY CAP</span>
+                <span class="v danger">&#8377;1,50,000</span>
+                <span class="s muted">or 0.5% Gross Turnover</span>
+              </div>
+              <div class="metric">
+                <span class="k">CASH LIMIT CLAUSE</span>
+                <span class="v">&le; 5% Cash</span>
+                <span class="s">Unlocks &#8377;10 Cr ceiling</span>
+              </div>
+            </div>
+            <div class="ribbon">
+              <div>
+                <div class="t">Verify Compliance Readiness</div>
+                <div class="s">Validate 44AB threshold &amp; CARO criteria in seconds</div>
+              </div>
+              <a href="#tax-audit" class="btn btn-accent">Evaluate</a>
+            </div>
+            <span class="glow" aria-hidden="true"></span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: AUDIT TYPES MATRIX -->
+    <section class="section-alt" id="audit-types">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">
+              <svg viewBox="0 0 12 14"><path d="M2 1h6l3 3v9H2z"/></svg>
+              Companies Act, 2013
+            </span>
+            <h2 style="margin-top: 12px;">Audit Types Matrix</h2>
+            <p class="intro">Who must conduct each audit, what it covers, and what applicability thresholds apply under the Companies Act, 2013.</p>
+          </div>
+          <span class="chip">Comparative view</span>
+        </div>
+
+        <div class="matrix">
+          <article class="audit-card">
+            <div class="top"><span class="chip">Mandatory</span></div>
+            <div>
+              <h3>Statutory Audit</h3>
+              <div class="sub">True &amp; Fair Financial View</div>
+            </div>
+            <div class="field"><b>Applicability</b>All companies registered in India (Private Ltd, Public Ltd, OPC, Section 8) regardless of turnover or paid-up capital.</div>
+            <div class="field"><b>Auditor</b>Chartered Accountant in practice with valid ICAI COP &amp; UDIN.</div>
+            <div class="field"><b>Auditor Tenure</b>5 consecutive years for individual CA; 2 terms of 5 years (10 yrs) for CA firms before mandatory 5-year cooling period.</div>
+            <div class="field"><b>Governing Rule</b>Companies (Audit &amp; Auditors) Rules, 2014 &amp; CARO 2020.</div>
+            <div class="foot"><span>View standards</span><span>&rarr;</span></div>
+          </article>
+
+          <article class="audit-card">
+            <div class="top"><span class="chip">Threshold-based</span></div>
+            <div>
+              <h3>Internal Audit</h3>
+              <div class="sub">ICFR &amp; Operational Governance</div>
+            </div>
+            <div class="field"><b>Applicability</b>All listed entities. Unlisted Public (Turnover &ge; &#8377;200 Cr or Paid-up &ge; &#8377;50 Cr or Borrowings &ge; &#8377;100 Cr or Deposits &ge; &#8377;25 Cr). Private Ltd (Turnover &ge; &#8377;200 Cr or Borrowings &ge; &#8377;100 Cr).</div>
+            <div class="field"><b>Auditor</b>CA, Cost Accountant, or designated internal professional.</div>
+            <div class="field"><b>Bar</b>Under Section 144, an Internal Auditor cannot also be the Statutory Auditor of the entity.</div>
+            <div class="foot"><span>View standards</span><span>&rarr;</span></div>
+          </article>
+
+          <article class="audit-card">
+            <div class="top"><span class="chip">Listed &amp; large entities</span></div>
+            <div>
+              <h3>Secretarial Audit</h3>
+              <div class="sub">Corporate Governance Rigor</div>
+            </div>
+            <div class="field"><b>Applicability</b>Every listed company. Public unlisted with Paid-up capital &ge; &#8377;50 Cr or Turnover &ge; &#8377;250 Cr. Every company with outstanding loans/borrowings from banks &ge; &#8377;100 Cr.</div>
+            <div class="field"><b>Auditor</b>Practicing Company Secretary (PCS) under ICSI authority.</div>
+            <div class="field"><b>Key Focus</b>Adherence to SEBI, MCA, FEMA, SCRA, and substantive regulatory resolutions.</div>
+            <div class="foot"><span>View standards</span><span>&rarr;</span></div>
+          </article>
+
+          <article class="audit-card">
+            <div class="top"><span class="chip">Regulated sectors</span></div>
+            <div>
+              <h3>Cost Audit</h3>
+              <div class="sub">Input &amp; Production Controls</div>
+            </div>
+            <div class="field"><b>Applicability</b>Regulated sectors (Telecom, Power, Pharma, Sugar) with overall turnover &ge; &#8377;50 Cr and product turnover &ge; &#8377;25 Cr. Non-regulated sectors with overall turnover &ge; &#8377;100 Cr and product turnover &ge; &#8377;35 Cr.</div>
+            <div class="field"><b>Auditor</b>Practicing Cost Accountant (FCMA/ACMA in practice).</div>
+            <div class="field"><b>Exemption</b>Revenue from exports in foreign exchange exceeds 75% of total turnover.</div>
+            <div class="foot"><span>View standards</span><span>&rarr;</span></div>
+          </article>
+        </div>
+
+        <div class="caro">
+          <div>
+            <div class="label">CARO 2020 Execution Note</div>
+            <h4>Auditor's Report Order, 2020</h4>
+          </div>
+          <div>
+            <p>Companies (Auditor's Report) Order, 2020 introduces 21 exhaustive reporting clauses including title deeds of immovable property, working capital limits sanctioned on current assets exceeding &#8377;5 Cr, Benami property proceedings, crypto/virtual asset dealings, and ongoing cash losses.</p>
+            <div class="meta">
+              <span>Scope: <b>21 clauses</b></span>
+              <span>Trigger: <b>Companies Act auditors</b></span>
+              <span>Reference: <b>MCA CARO 2020</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: INCOME TAX AUDIT (SECTION 44AB) & INTERACTIVE ESTIMATOR -->
+    <section id="tax-audit">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">
+              <svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5"/><path d="M7 4v3l2 1"/></svg>
+              Income Tax Act
+            </span>
+            <h2 style="margin-top: 12px;">Income Tax Audit (Section 44AB)</h2>
+            <p class="intro">Turnover ceilings, cash-transaction limits, and report forms for tax audit, along with a quick eligibility estimator.</p>
+          </div>
+          <span class="chip">Due date: 31 October</span>
+        </div>
+
+        <div class="thresholds">
+          <div class="tbox">
+            <span class="muted" style="font-size:12px;">Business</span>
+            <div class="big">&#8377;10 Cr</div>
+            <p>Standard business turnover ceiling. Applies when cash transactions (receipts or payments) are 5% or less of gross turnover. Audit is compulsory beyond this mark.</p>
+          </div>
+          <div class="tbox">
+            <span class="muted" style="font-size:12px;">Cash receipts &amp; payments</span>
+            <div class="big">&le; 5%</div>
+            <p>Cash receipts &amp; payments must be &le; 5%. Introduced to stimulate digital operations. All banking transfers, NEFT, RTGS, and UPI qualify towards non-cash percentage.</p>
+          </div>
+          <div class="tbox">
+            <span class="muted" style="font-size:12px;">Professionals</span>
+            <div class="big">&#8377;50 Lakhs</div>
+            <p>Legal, Medical, Engineering, Accountancy. Standard limit is &#8377;50 Lakhs. Enhanced to &#8377;75 Lakhs under Finance Act if aggregate cash receipts do not exceed 5% of total gross receipts.</p>
+          </div>
+        </div>
+
+        <div class="bento">
+          <div class="forms-col">
+            <h3>Statutory Reporting Forms Demystified</h3>
+            <div class="form-card">
+              <div class="row">
+                <span class="code">Form 3CA</span>
+                <span class="chip">Already audited under another law</span>
+              </div>
+              <p>Furnished when the assessee is already required to get accounts audited under any other statute (e.g. Companies Act 2013). The auditor merely annexes Form 3CD with qualifying notes.</p>
+            </div>
+            <div class="form-card">
+              <div class="row">
+                <span class="code">Form 3CB</span>
+                <span class="chip">Not otherwise audited</span>
+              </div>
+              <p>Furnished when the taxpayer is an individual, HUF, or partnership firm whose accounts are not mandatorily audited under any other legislation prior to Section 44AB.</p>
+            </div>
+            <div class="clause">
+              <strong>Clause 44 Disclosure Note:</strong><br />
+              Form 3CD must accompany either report and forms part of the tax audit report filed with the income tax return.
+            </div>
+          </div>
+
+          <div class="calc" id="calculator">
+            <div class="calc-head">
+              <div class="t">
+                <svg viewBox="0 0 18 18"><rect x="3" y="2" width="12" height="14" rx="2"/><path d="M6 6h6M6 9h2M10 9h2M6 12h6"/></svg>
+                <h3>Interactive Assessment Tool</h3>
+              </div>
+              <span class="muted" style="font-size:12px;">Indicative only</span>
+            </div>
+
+            <div class="calc-grid">
+              <div>
+                <label class="field-label" for="nature">Nature of Operation</label>
+                <select class="select" id="nature">
+                  <option value="business" selected>Commercial Business / Trade</option>
+                  <option value="profession">Legal, Medical, Engineering, Accountancy</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="turnover">Gross Turnover / Receipts (&#8377; INR)</label>
+                <input class="input" id="turnover" type="number" min="0" step="100000" value="12500000" />
+              </div>
+              <div>
+                <label class="field-label" for="cash">Aggregate Cash Share (% of receipts/payments)</label>
+                <input class="input" id="cash" type="number" min="0" max="100" step="0.5" value="5" />
+              </div>
+              <div>
+                <span class="field-label">Declaring Presumptive Profits?</span>
+                <div class="toggle" role="group" aria-label="Declaring presumptive profits">
+                  <button type="button" data-presumptive="no" class="on">No</button>
+                  <button type="button" data-presumptive="yes">Yes (44AD / 44ADA)</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="result" id="calcResult" aria-live="polite">
+              <svg class="icon" viewBox="0 0 26 26" fill="none" stroke="#006a63" stroke-width="2"><circle cx="13" cy="13" r="11"/><path d="M8 13l3.5 3.5L18 10"/></svg>
+              <div>
+                <h4 id="resultTitle">Tax audit likely not required</h4>
+                <p id="resultText"></p>
+                <span class="pill" id="resultPill">Section 44AB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GST RECONCILIATION & COMPLIANCE (GSTR-9 & 9C) -->
+    <section class="section-alt" id="gst">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">
+              <svg viewBox="0 0 14 14"><path d="M2 7h10M7 2v10"/></svg>
+              GST Annual Return &amp; Reconciliation
+            </span>
+            <h2 style="margin-top: 12px;">GSTR-9 &amp; 9C Reconciliation</h2>
+            <p class="intro">Annual return and reconciliation requirements by turnover tier, plus the four-step pipeline to reconcile your books with GST filings.</p>
+          </div>
+          <span class="chip">Due date: 31 December</span>
+        </div>
+
+        <div class="gst-tiers">
+          <div class="tier">
+            <span class="range">UP TO &#8377;2 CR</span>
+            <div class="status">GSTR-9: Exempt from mandatory filing</div>
+            <p>Registered taxpayers with aggregate PAN-level turnover under &#8377;2 Crores are exempted from mandatory filing of GSTR-9. Voluntary filing is advised to freeze ITC disputes.</p>
+          </div>
+          <div class="tier">
+            <span class="range">&#8377;2 CR &ndash; &#8377;5 CR</span>
+            <div class="status">GSTR-9 mandatory, GSTR-9C not required</div>
+            <p>Form GSTR-9 Annual Return is mandatory. Detailed outward supplies, inward supplies under RCM, and tax paid must be reconciled. GSTR-9C reconciliation statement is exempt.</p>
+          </div>
+          <div class="tier">
+            <span class="range">ABOVE &#8377;5 CR</span>
+            <div class="status">GSTR-9 &amp; GSTR-9C mandatory</div>
+            <p>Both GSTR-9 (Annual Return) and GSTR-9C (Reconciliation Statement) are strictly mandatory. Taxpayers self-certify turnover and tax reconciliations directly on the GST Common Portal.</p>
+          </div>
+        </div>
+
+        <div class="pipeline">
+          <h3>The 4-Step Institutional GST Reconciliation Pipeline</h3>
+          <div class="pipe">
+            <div class="pipe-step">
+              <div class="ph">PHASE 01</div>
+              <h4>Audited Books of Account</h4>
+              <p>Extract audited P&amp;L balance, gross turnover, inter-state stock transfers, other incomes, and advances received.</p>
+            </div>
+            <div class="pipe-step">
+              <div class="ph">PHASE 02</div>
+              <h4>Turnover Alignment</h4>
+              <p>Reconcile differences between GSTR-1, GSTR-3B, and Balance Sheet gross revenues to pinpoint unbilled revenue or timing adjustments.</p>
+            </div>
+            <div class="pipe-step">
+              <div class="ph">PHASE 03</div>
+              <h4>ITC 2B vs GSTR-3B</h4>
+              <p>Execute strict invoice-matching against auto-populated GSTR-2B. Flag uncredited invoices, Section 17(5) blocked credits, and rule 37 reversals.</p>
+            </div>
+            <div class="pipe-step">
+              <div class="ph">PHASE 04</div>
+              <h4>Form DRC-03 Clearance</h4>
+              <p>Discharge additional tax, interest, or excess ITC reversal through DRC-03 voluntary payment mode prior to filing confirmation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: ICAI STANDARDS ON AUDITING (SAs) -->
+    <section id="standards">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">
+              <svg viewBox="0 0 15 11"><path d="M1 6l4 4 9-9"/></svg>
+              Institute of Chartered Accountants of India
+            </span>
+            <h2 style="margin-top: 12px;">ICAI Standards on Auditing (SAs) Codex</h2>
+            <p class="intro">The core Standards on Auditing that govern planning, risk assessment, audit evidence, and audit opinions.</p>
+          </div>
+          <div class="chip" style="max-width: 320px; white-space: normal;">Ind AS aligned financial reporting</div>
+        </div>
+
+        <div class="sa-grid">
+          <article class="sa-card">
+            <span class="code">SA 200</span>
+            <h4>Overall Objectives</h4>
+            <p>Governs reasonable assurance, professional skepticism, ethical requirements, and auditor independence in financial statement reviews.</p>
+          </article>
+          <article class="sa-card">
+            <span class="code">SA 315 &amp; SA 320</span>
+            <h4>Risk &amp; Materiality</h4>
+            <p>Identifying risks of material misstatement through understanding entity controls and establishing materiality thresholds for audit scope.</p>
+          </article>
+          <article class="sa-card">
+            <span class="code">SA 500 &amp; SA 505</span>
+            <h4>Audit Evidence</h4>
+            <p>Sufficient and appropriate evidence design, sampling routines, external confirmations from banks, debtors, and active legal counsels.</p>
+          </article>
+          <article class="sa-card">
+            <span class="code">SA 700, 705 &amp; 706</span>
+            <h4>Opinions</h4>
+            <p>Framework for formulating Unmodified, Qualified, Adverse, or Disclaimer of Opinion, plus Emphasis of Matter paragraphs.</p>
+          </article>
+        </div>
+
+        <div class="opinions">
+          <h4>The 4 Audit Opinion Classifications (SA 700 &amp; 705)</h4>
+          <div class="op-grid">
+            <div class="op">
+              <h5>01. Unmodified (Clean)</h5>
+              <p>Financial statements give a true and fair view in all material respects in line with AS / Ind-AS.</p>
+            </div>
+            <div class="op">
+              <h5>02. Qualified Opinion</h5>
+              <p>Misstatements are material but not pervasive to the financial statements taken as a whole.</p>
+            </div>
+            <div class="op">
+              <h5>03. Adverse Opinion</h5>
+              <p>Misstatements are both material AND pervasive, distorting the entire economic depiction.</p>
+            </div>
+            <div class="op">
+              <h5>04. Disclaimer of Opinion</h5>
+              <p>Auditor unable to obtain sufficient appropriate evidence; potential effects are both material and pervasive.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: FAQ ACCORDION -->
+    <section class="section-alt" id="faq">
+      <div class="container">
+        <div class="faq">
+          <div class="faq-title">
+            <span class="eyebrow">Frequently Asked Questions</span>
+            <h2 style="margin-top: 12px;">Common Compliance Questions</h2>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item open">
+              <button class="faq-q" aria-expanded="true">
+                Is every company required to get its accounts audited every year?
+                <span class="plus" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a">Yes. Under Section 139 of the Companies Act 2013, every company incorporated in India must appoint a statutory auditor and have its financial accounts audited annually, irrespective of turnover, transactional volume, or whether the company generated zero revenue. An unaudited balance sheet cannot be approved or filed with the RoC (Form AOC-4).</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">
+                Who needs a tax audit under Section 44AB?
+                <span class="plus" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a">Businesses whose turnover exceeds &#8377;10 Cr (or &#8377;1 Cr where cash receipts or payments exceed 5%), and professionals whose gross receipts exceed &#8377;50 Lakhs (or &#8377;75 Lakhs where cash is 5% or less). Check the Tax Audit Eligibility estimator above for a quick indication.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">
+                What is the difference between Form 3CA and Form 3CB?
+                <span class="plus" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a">Form 3CA is used when the taxpayer is already required to get accounts audited under another law, such as the Companies Act. Form 3CB is used by individuals, HUFs, and partnership firms whose accounts are not mandatorily audited under any other legislation. Form 3CD accompanies either report.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">
+                Is GSTR-9C mandatory for every GST taxpayer?
+                <span class="plus" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a">No. GSTR-9 is mandatory for most registered taxpayers above the threshold, while GSTR-9C is required only for taxpayers above the turnover limit set in the GST rules. Check the GST tier cards above to see which requirements apply to your turnover.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">
+                What is CARO 2020 and who must comply?
+                <span class="plus" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a">The Companies (Auditor's Report) Order, 2020 requires auditors to report on 21 specific matters, including fixed assets, inventories, loans, statutory dues, and internal controls. It applies to companies covered by the Order under the Companies Act, 2013, subject to its exemption criteria.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: DIRECT COMPLIANCE ADVISORY DESK & CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head" style="margin-bottom: 32px;">
+          <div>
+            <span class="eyebrow">
+              <svg viewBox="0 0 13 13"><path d="M2 2h9v9H2z"/><path d="M4 6h5M4 8.5h3"/></svg>
+              Institutional Advisory Desk
+            </span>
+            <h2 style="margin-top: 12px;">Schedule Regulatory Consultation</h2>
+            <p class="intro">Connect directly with our regulatory compliance cell for statutory readiness audits, ICFR assessments, CARO 2020 alignments, or GST appeal reconciliations.</p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="form-card-main">
+            <form id="inquiryForm" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <label class="field-label" for="name">Designated Officer Name *</label>
+                  <input class="field-input" id="name" name="name" type="text" placeholder="e.g. Vikramaditya Sen" autocomplete="name" required />
+                  <span class="error-text" id="nameError">Please enter your name.</span>
+                </div>
+                <div class="form-field">
+                  <label class="field-label" for="email">Corporate Email Address *</label>
+                  <input class="field-input" id="email" name="email" type="email" placeholder="v.sen@enterprise.in" autocomplete="email" required />
+                  <span class="error-text" id="emailError">Enter a valid email address.</span>
+                </div>
+              </div>
+              <div class="form-row single">
+                <div class="form-field">
+                  <label class="field-label" for="phone">Phone / Mobile *</label>
+                  <input class="field-input" id="phone" name="phone" type="tel" placeholder="+91 98200 XXXXX" autocomplete="tel" required />
+                  <span class="error-text" id="phoneError">Enter a valid 10-digit mobile number.</span>
+                </div>
+              </div>
+
+              <button type="submit" class="submit-btn" id="submitBtn">
+                <svg viewBox="0 0 16 13"><path d="M1 6.5h13M9 1l5.5 5.5L9 12"/></svg>
+                <span id="submitLabel">Submit Statutory Inquiry</span>
+              </button>
+              <p class="form-note">Strict non-disclosure observed. Governed under standard NDA protocol.</p>
+              <div class="status-box" id="statusBox" role="status"></div>
+            </form>
+          </div>
+
+          <div class="side">
+            <div class="panel">
+              <h3>Direct Regulatory Hotline</h3>
+              <div class="contact-item">
+                <div class="ico"><svg viewBox="0 0 14 14"><path d="M3 1.5l2 2.5-1 1.5a8 8 0 0 0 3.5 3.5l1.5-1 2.5 2-1.5 2A10 10 0 0 1 1.5 3.5z"/></svg></div>
+                <div>
+                  <div class="lbl">Desk Line (Mon&ndash;Sat, 9am &ndash; 7pm IST)</div>
+                  <div class="val"><a href="tel:+910226789400">+91 (022) 6789-2400</a></div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="ico"><svg viewBox="0 0 15 12"><rect x="1" y="1" width="13" height="10" rx="1"/><path d="M1 2l6.5 4.5L14 2"/></svg></div>
+                <div>
+                  <div class="lbl">Statutory Advisory Email</div>
+                  <div class="sm"><a href="mailto:compliance@auditpro.org.in">compliance@auditpro.org.in</a></div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="ico"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5"/><path d="M7 4v3.5l2 1.5"/></svg></div>
+                <div>
+                  <div class="lbl">Guaranteed SLA Turnaround</div>
+                  <div class="sm">Institutional review within 24 business hours</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h3>Institutional Compliance Centers</h3>
+              <div class="hub">
+                <svg viewBox="0 0 14 18"><path d="M7 1a5 5 0 0 1 5 5c0 4-5 11-5 11S2 10 2 6a5 5 0 0 1 5-5z"/><circle cx="7" cy="6" r="2"/></svg>
+                <div>
+                  <strong>Mumbai Regulatory Hub (BKC)</strong>
+                  <span>Level 9, One BKC, G Block, Bandra Kurla Complex, Mumbai, MH</span>
+                  <span>400051</span>
+                </div>
+              </div>
+              <div class="hub">
+                <svg viewBox="0 0 14 18"><path d="M7 1a5 5 0 0 1 5 5c0 4-5 11-5 11S2 10 2 6a5 5 0 0 1 5-5z"/><circle cx="7" cy="6" r="2"/></svg>
+                <div>
+                  <strong>New Delhi Statutory Cell (CP)</strong>
+                  <span>Statesman House, Barakhamba Road, Connaught Place, New Delhi</span>
+                  <span>110001</span>
+                </div>
+              </div>
+              <div class="hub">
+                <svg viewBox="0 0 14 18"><path d="M7 1a5 5 0 0 1 5 5c0 4-5 11-5 11S2 10 2 6a5 5 0 0 1 5-5z"/><circle cx="7" cy="6" r="2"/></svg>
+                <div>
+                  <strong>Bengaluru Technology Desk</strong>
+                  <span>EcoWorld Tech Center, Outer Ring Road, Bellandur, Bengaluru, KA</span>
+                  <span>560103</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <div class="brand-mark">
+              <svg viewBox="0 0 14 17"><path d="M7 1 L13 4 V9 C13 12.5 10.5 15 7 16 C3.5 15 1 12.5 1 9 V4 Z"/><path d="M4.5 8.5 L6.5 10.5 L10 6.5"/></svg>
+            </div>
+            AuditPro
+          </div>
+          <p>Institutional regulatory audit enablement and statutory compliance intelligence for Indian enterprises and practitioners.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#audit-types">Statutory Audit Types</a></li>
+            <li><a href="#tax-audit">Section 44AB Tax Audit</a></li>
+            <li><a href="#gst">GST Audit &amp; Reconciliation</a></li>
+            <li><a href="#standards">ICAI Auditing Standards</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Regulatory Portals</h4>
+          <ul>
+            <li><a href="https://www.mca.gov.in" target="_blank" rel="noopener">Ministry of Corporate Affairs (MCA)</a></li>
+            <li><a href="https://www.incometax.gov.in" target="_blank" rel="noopener">Income Tax e-Filing Portal</a></li>
+            <li><a href="https://www.gst.gov.in" target="_blank" rel="noopener">GST Common Portal (CBIC)</a></li>
+            <li><a href="https://www.icai.org" target="_blank" rel="noopener">ICAI Official Resources</a></li>
+            <li><a href="https://www.rbi.org.in" target="_blank" rel="noopener">Reserve Bank of India (RBI)</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compliance &amp; Advisory</h4>
+          <p>Dedicated desk for enterprise audit readiness, internal controls over financial reporting (ICFR), and CARO 2020 matrices.</p>
+          <p style="margin-top: 12px;"><a href="#contact">Schedule a consultation &rarr;</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 AuditPro. All rights reserved.</span>
+        <nav aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Disclaimer</a>
+        </nav>
+      </div>
+      <p class="disclaimer">This website is for informational purposes only and does not constitute professional advice. Thresholds, due dates, and rules change; verify with the official portals or a qualified professional before acting.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      /* ---------- Mobile menu ---------- */
+      var toggle = document.getElementById('menuToggle');
+      var nav = document.getElementById('nav');
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      /* ---------- FAQ accordion ---------- */
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        item.querySelector('.faq-q').addEventListener('click', function () {
+          var isOpen = item.classList.toggle('open');
+          this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+      });
+
+      /* ---------- Tax audit estimator ---------- */
+      var nature = document.getElementById('nature');
+      var turnover = document.getElementById('turnover');
+      var cash = document.getElementById('cash');
+      var presumptiveButtons = document.querySelectorAll('[data-presumptive]');
+      var presumptive = false;
+
+      presumptiveButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          presumptive = btn.getAttribute('data-presumptive') === 'yes';
+          presumptiveButtons.forEach(function (b) { b.classList.toggle('on', b === btn); });
+          evaluate();
+        });
+      });
+      [nature, turnover, cash].forEach(function (el) { el.addEventListener('input', evaluate); el.addEventListener('change', evaluate); });
+
+      function evaluate() {
+        var sales = Math.max(0, Number(turnover.value) || 0);
+        var cashPct = Math.max(0, Math.min(100, Number(cash.value) || 0));
+        var isProfession = nature.value === 'profession';
+        var lowCash = cashPct <= 5;
+        var limit = isProfession
+          ? (lowCash ? 7500000 : 5000000)
+          : (lowCash ? 100000000 : 10000000);
+
+        var title, text;
+        if (presumptive) {
+          title = 'Presumptive scheme declared';
+          text = 'If you declare profits under Section 44AD (business) or 44ADA (profession), a tax audit is generally not required. Confirm the declared profit meets the scheme minimum before filing.';
+        } else if (sales > limit) {
+          title = 'Tax audit likely required';
+          text = 'Your turnover of \u20b9' + fmt(sales) + ' exceeds the \u20b9' + fmt(limit) + ' ceiling for this profile. A tax audit under Section 44AB is likely required, with Form 3CA or 3CB plus Form 3CD, due by 31 October.';
+        } else {
+          title = 'Tax audit likely not required';
+          text = 'Your turnover of \u20b9' + fmt(sales) + ' is within the \u20b9' + fmt(limit) + ' ceiling for this profile. This is indicative only; the final call depends on the full Section 44AB rules.';
+        }
+        document.getElementById('resultTitle').textContent = title;
+        document.getElementById('resultText').textContent = text;
+        document.getElementById('resultPill').textContent = lowCash ? 'Cash \u2264 5%: higher limit' : 'Cash > 5%: lower limit';
+      }
+
+      function fmt(n) {
+        return Number(n).toLocaleString('en-IN');
+      }
+      evaluate();
+
+      /* ---------- Inquiry form -> Google Apps Script ---------- */
+      var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwP-978ZgmPuuxppufrBqBwHsQcJM1petKQCL0K-T6ugtkLn-3u8MlFHlkYb1xge-jW/exec";
+
+      var form = document.getElementById('inquiryForm');
+      var submitBtn = document.getElementById('submitBtn');
+      var submitLabel = document.getElementById('submitLabel');
+      var statusBox = document.getElementById('statusBox');
+
+      function setError(inputId, errorId, show) {
+        document.getElementById(inputId).classList.toggle('invalid', show);
+        document.getElementById(errorId).classList.toggle('show', show);
+      }
+
+      function validate(name, email, phone) {
+        var ok = true;
+        setError('name', 'nameError', !name);
+        if (!name) ok = false;
+        var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        setError('email', 'emailError', !emailOk);
+        if (!emailOk) ok = false;
+        var digits = phone.replace(/[^0-9]/g, '');
+        var phoneOk = digits.length >= 10 && digits.length <= 13;
+        setError('phone', 'phoneError', !phoneOk);
+        if (!phoneOk) ok = false;
+        return ok;
+      }
+
+      function showSuccess() {
+        statusBox.className = 'status-box ok show';
+        statusBox.textContent = 'Thank you. Your inquiry has been received and an advisor will contact you within one business day.';
+        form.reset();
+        resetButton();
+      }
+
+      function showError() {
+        statusBox.className = 'status-box err show';
+        statusBox.textContent = 'Something went wrong while sending your inquiry. Please try again or call the desk line.';
+        resetButton();
+      }
+
+      function resetButton() {
+        submitBtn.disabled = false;
+        submitLabel.textContent = 'Submit Statutory Inquiry';
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        statusBox.className = 'status-box';
+        statusBox.textContent = '';
+
+        var name = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+
+        if (!validate(name, email, phone)) return;
+
+        submitBtn.disabled = true;
+        submitLabel.textContent = 'Sending...';
+
+        var url = SCRIPT_URL + "?" + new URLSearchParams({ name: name, email: email, phone: phone });
+
+        fetch(url, { method: "GET", mode: "no-cors" })
+          .then(() => showSuccess())
+          .catch(() => showError());
+      });
+    })();
+  </script>
+</body>
+</html>
